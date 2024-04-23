@@ -31,18 +31,18 @@ def check_bound(obj_rct:pg.Rect) -> tuple[bool,bool]:
 
 def game_over():
     #game over画面
-    bg_img = pg.image.load("fig/pg_bg.jpg")
-    sad_img =  pg.transform.rotozoom(pg.image.load("fig/8.png"), 20, 2)
+    bg_img = pg.image.load("fig/pg_bg.jpg")                             #こうかとんを持ってくる
+    sad_img =  pg.transform.rotozoom(pg.image.load("fig/8.png"), 20, 2)#泣いてるこうかとん
     sad_rct = sad_img.get_rect()
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     rect = pg.Surface((900,400))
-    pg.draw.circle(rect,0,(0,0),0,0)
-    fonto = pg.font.Font(None,150)
-    txt = fonto.render("Game Over", True,(255,255,255))
-    screen.blit(txt,[400,300])
-    screen.blit(sad_img,sad_rct)
-    pg.display.update()
-    time.sleep(5)
+    pg.draw.rect(rect,0,(0,0),0,0)
+    fonto = pg.font.Font(None,150)                                      #文字の大きさ設定
+    txt = fonto.render("Game Over", True,(255,255,255))                 #Game Overを白色で表示されるようにする
+    screen.blit(txt,[400,300])                                          #Game Over の表示
+    screen.blit(sad_img,sad_rct)                                        #こうかとん登場
+    pg.display.update()                                                 #画面のデータ更新
+    time.sleep(5)                                                       #5秒表示
     
     
 def main():
