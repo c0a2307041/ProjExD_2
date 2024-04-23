@@ -36,7 +36,7 @@ def game_over():
     sad_rct = sad_img.get_rect()
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     rect = pg.Surface((900,400))
-    pg.draw.rect(rect,0,(0,0),0,0)
+    pg.draw.circle(rect,0,(0,0),0,0)
     fonto = pg.font.Font(None,150)                                      #文字の大きさ設定
     txt = fonto.render("Game Over", True,(255,255,255))                 #Game Overを白色で表示されるようにする
     screen.blit(txt,[400,300])                                          #Game Over の表示
