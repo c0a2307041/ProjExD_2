@@ -1,3 +1,4 @@
+import time
 import os
 import random
 import sys
@@ -28,6 +29,22 @@ def check_bound(obj_rct:pg.Rect) -> tuple[bool,bool]:
     return yoko,tate
 
 
+def game_over():
+    #game over画面
+    bg_img = pg.image.load("fig/pg_bg.jpg")
+    sad_img =  pg.transform.rotozoom(pg.image.load("fig/8.png"), 20, 2)
+    sad_rct = sad_img.get_rect()
+    screen = pg.display.set_mode((WIDTH, HEIGHT))
+    rect = pg.Surface((900,400))
+    pg.draw.circle(rect,0,(0,0),0,0)
+    fonto = pg.font.Font(None,150)
+    txt = fonto.render("Game Over", True,(255,255,255))
+    screen.blit(txt,[400,300])
+    screen.blit(sad_img,sad_rct)
+    pg.display.update()
+    time.sleep(5)
+    
+    
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -50,6 +67,7 @@ def main():
                 return
         if kk_rct.colliderect(bd_rct):  #こうかとんと爆弾がぶつかったら
             print("Game Over")
+            game_over()
             return
         screen.blit(bg_img, [0, 0]) 
 
