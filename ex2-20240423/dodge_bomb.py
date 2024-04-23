@@ -42,7 +42,7 @@ def game_over():
     screen.blit(txt,[400,300])                                          #Game Over の表示
     screen.blit(sad_img,sad_rct)                                        #こうかとん登場
     pg.display.update()                                                 #画面のデータ更新
-    time.sleep(5)                                                       #5秒間表示
+    time.sleep(5)                                                       #5秒間表示するようにする
     
     
 def main():
